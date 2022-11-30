@@ -3,17 +3,28 @@ defineOptions({
   name: 'IndexPage',
 })
 
-// const name = $ref('')
+const router = useRouter()
+const go = (name: string) => {
+  if (name)
+    router.push(`/days/${name}`)
+}
+const pratices = ['plum', 'line']
 
-// const router = useRouter()
-// const go = () => {
-//   if (name)
-//     router.push(`/hi/${encodeURIComponent(name)}`)
-// }
+function bg(){
+  toggleDark()
+};
 </script>
 
 <template>
   <div>
     100 days pratice
   </div>
+  <div>
+    <ul>
+      <li v-for="item in pratices" @click="go(item)">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+  <button @click="bg">toggleDark</button>
 </template>
