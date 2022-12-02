@@ -35,7 +35,7 @@ function startAnimation() {
 }
 
 function init() {
-  ctx.strokeStyle = 'white'
+  ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)'
   const branch: Branch = {
     start: { x: WIDTH / 2, y: HEIGHT },
     length: 15,
@@ -66,7 +66,7 @@ function drawBranch(b: Branch) {
 function step(b: Branch, depth = 1) {
   const end = getEndPoint(b);
   drawBranch(b);
-  if (depth < 8 ||Math.random() < 0.5) {
+  if (depth < 8 || Math.random() < 0.5) {
     pendingTasks.push(() => {
       step({
         start: end,
